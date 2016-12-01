@@ -11,7 +11,7 @@ import static graphql.schema.GraphQLFieldDefinition.newFieldDefinition;
 import static graphql.schema.GraphQLObjectType.newObject;
 
 public class MyGraphQL {
-    public static String getModel() {
+    public static String getModel(String requestString) {
         GraphQLObjectType queryType = newObject()
                 .name("helloWorldQuery")
                 .field(newFieldDefinition()
@@ -23,7 +23,7 @@ public class MyGraphQL {
         GraphQLSchema schema = GraphQLSchema.newSchema()
                 .query(queryType)
                 .build();
-        Map<String, Object> result = (Map<String, Object>) new GraphQL(schema).execute("{hello}").getData();
+        Map<String, Object> result = (Map<String, Object>) new GraphQL(schema).execute(requestString).getData();
 
         System.out.println(result);
 

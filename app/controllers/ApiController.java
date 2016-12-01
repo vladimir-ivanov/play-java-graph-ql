@@ -7,6 +7,6 @@ import static play.mvc.Results.ok;
 
 public class ApiController {
     public Result index() {
-        return ok(MyGraphQL.getModel());
+        return ok(MyGraphQL.getModel("{hello}"));
     }
 }
